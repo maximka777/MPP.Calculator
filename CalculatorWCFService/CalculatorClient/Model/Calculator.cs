@@ -8,6 +8,47 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+namespace CalculatorWCFService.CustomExceptions
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ArithmeticFault", Namespace="http://schemas.datacontract.org/2004/07/CalculatorWCFService.CustomExceptions")]
+    public partial class ArithmeticFault : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string MessageField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message
+        {
+            get
+            {
+                return this.MessageField;
+            }
+            set
+            {
+                this.MessageField = value;
+            }
+        }
+    }
+}
 
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -16,30 +57,35 @@ public interface ICalculator
 {
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculator/Add", ReplyAction="http://tempuri.org/ICalculator/AddResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(CalculatorWCFService.CustomExceptions.ArithmeticFault), Action="http://tempuri.org/ICalculator/AddArithmeticFaultFault", Name="ArithmeticFault", Namespace="http://schemas.datacontract.org/2004/07/CalculatorWCFService.CustomExceptions")]
     double Add(double a, double b);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculator/Add", ReplyAction="http://tempuri.org/ICalculator/AddResponse")]
     System.Threading.Tasks.Task<double> AddAsync(double a, double b);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculator/Substract", ReplyAction="http://tempuri.org/ICalculator/SubstractResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(CalculatorWCFService.CustomExceptions.ArithmeticFault), Action="http://tempuri.org/ICalculator/SubstractArithmeticFaultFault", Name="ArithmeticFault", Namespace="http://schemas.datacontract.org/2004/07/CalculatorWCFService.CustomExceptions")]
     double Substract(double a, double b);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculator/Substract", ReplyAction="http://tempuri.org/ICalculator/SubstractResponse")]
     System.Threading.Tasks.Task<double> SubstractAsync(double a, double b);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculator/Multiply", ReplyAction="http://tempuri.org/ICalculator/MultiplyResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(CalculatorWCFService.CustomExceptions.ArithmeticFault), Action="http://tempuri.org/ICalculator/MultiplyArithmeticFaultFault", Name="ArithmeticFault", Namespace="http://schemas.datacontract.org/2004/07/CalculatorWCFService.CustomExceptions")]
     double Multiply(double a, double b);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculator/Multiply", ReplyAction="http://tempuri.org/ICalculator/MultiplyResponse")]
     System.Threading.Tasks.Task<double> MultiplyAsync(double a, double b);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculator/Divide", ReplyAction="http://tempuri.org/ICalculator/DivideResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(CalculatorWCFService.CustomExceptions.ArithmeticFault), Action="http://tempuri.org/ICalculator/DivideArithmeticFaultFault", Name="ArithmeticFault", Namespace="http://schemas.datacontract.org/2004/07/CalculatorWCFService.CustomExceptions")]
     double Divide(double a, double b);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculator/Divide", ReplyAction="http://tempuri.org/ICalculator/DivideResponse")]
     System.Threading.Tasks.Task<double> DivideAsync(double a, double b);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculator/Sqrt", ReplyAction="http://tempuri.org/ICalculator/SqrtResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(CalculatorWCFService.CustomExceptions.ArithmeticFault), Action="http://tempuri.org/ICalculator/SqrtArithmeticFaultFault", Name="ArithmeticFault", Namespace="http://schemas.datacontract.org/2004/07/CalculatorWCFService.CustomExceptions")]
     double Sqrt(double a);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculator/Sqrt", ReplyAction="http://tempuri.org/ICalculator/SqrtResponse")]

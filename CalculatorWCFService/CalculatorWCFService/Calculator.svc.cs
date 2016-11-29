@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalculatorWCFService.CustomExceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -18,6 +19,10 @@ namespace CalculatorWCFService
 
         public double Divide(double a, double b)
         {
+            if(b == 0)
+            {
+                throw new FaultException<ArithmeticFault>(new ArithmeticFault("Dividing by zero."));
+            }
             return a / b;
         }
 

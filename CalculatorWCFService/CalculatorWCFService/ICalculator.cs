@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalculatorWCFService.CustomExceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -12,18 +13,23 @@ namespace CalculatorWCFService
     public interface ICalculator
     {
         [OperationContract]
+        [FaultContract(typeof(ArithmeticFault))]
         double Add(double a, double b);
 
         [OperationContract]
+        [FaultContract(typeof(ArithmeticFault))]
         double Substract(double a, double b);
 
         [OperationContract]
+        [FaultContract(typeof(ArithmeticFault))]
         double Multiply(double a, double b);
 
         [OperationContract]
+        [FaultContract(typeof(ArithmeticFault))]
         double Divide(double a, double b);
 
         [OperationContract]
+        [FaultContract(typeof(ArithmeticFault))]
         double Sqrt(double a);
     }
 }

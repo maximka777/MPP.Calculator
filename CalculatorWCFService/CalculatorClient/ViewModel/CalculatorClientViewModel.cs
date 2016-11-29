@@ -1,7 +1,9 @@
-﻿using System;
+﻿using CalculatorWCFService.CustomExceptions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -158,7 +160,7 @@ namespace CalculatorClient.ViewModel
             {
                 Result = calculator.Divide(a, b);
             }
-            catch (ArithmeticException exc)
+            catch (FaultException<ArithmeticFault> exc)
             {
                 ErrorText = exc.Message;
             }
