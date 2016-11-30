@@ -10,10 +10,12 @@ namespace CalculatorWCFService.CustomExceptions
     public class ArithmeticFault
     {
         [DataMember]
-        public string Message { get;}
+        public string Message;
+
         public ArithmeticFault()
         {
         }
+
         public ArithmeticFault(string error)
         {
             Message = error;

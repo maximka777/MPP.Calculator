@@ -162,6 +162,10 @@ namespace CalculatorClient.ViewModel
             }
             catch (FaultException<ArithmeticFault> exc)
             {
+                ErrorText = exc.Detail.Message;
+            }
+            catch (FaultException exc)
+            {
                 ErrorText = exc.Message;
             }
         }
