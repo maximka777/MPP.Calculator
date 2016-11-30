@@ -14,6 +14,8 @@
         <Button Command="{Binding MultiplyCommand}" Margin="5">*</Button>
         <Button Command="{Binding DivideCommand}" Margin="5">/</Button>
         <Button Command="{Binding SqrtCommand}" Margin="5">Sqrt</Button>
-        <TextBox Text="{Binding ErrorText}"  Margin="5" />
+        <ScrollViewer Height="150">
+            <TextBox Text="{Binding ErrorText}"  Margin="5"/>
+        </ScrollViewer>
     </StackPanel>
 </UserControl>

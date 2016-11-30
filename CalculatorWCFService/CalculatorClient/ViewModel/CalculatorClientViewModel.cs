@@ -73,7 +73,7 @@ namespace CalculatorClient.ViewModel
                 {
                     errorText = string.Empty;
                 }
-                errorText += value + "\n";
+                errorText += DateTime.Now + ": " + value + "\n";
                 RaisePropertyChangedEvent(nameof(ErrorText));
             }
         }
@@ -124,9 +124,9 @@ namespace CalculatorClient.ViewModel
             {
                 Result = calculator.Add(a, b);
             }
-            catch(OverflowException exc)
+            catch (FaultException<ArithmeticFault> exc)
             {
-                ErrorText = exc.Message;
+                ErrorText = exc.Detail.Message;
             }
         }
 
@@ -136,11 +136,11 @@ namespace CalculatorClient.ViewModel
             {
                 Result = calculator.Substract(a, b);
             }
-            catch (OverflowException exc)
+            catch (FaultException<ArithmeticFault> exc)
             {
-                ErrorText = exc.Message;
+                ErrorText = exc.Detail.Message;
             }
-}
+        }
 
         private void Multiply()
         {
@@ -148,9 +148,9 @@ namespace CalculatorClient.ViewModel
             {
                 Result = calculator.Multiply(a, b);
             }
-            catch (OverflowException exc)
+            catch (FaultException<ArithmeticFault> exc)
             {
-                ErrorText = exc.Message;
+                ErrorText = exc.Detail.Message;
             }
         }
 
@@ -164,10 +164,6 @@ namespace CalculatorClient.ViewModel
             {
                 ErrorText = exc.Detail.Message;
             }
-            catch (FaultException exc)
-            {
-                ErrorText = exc.Message;
-            }
         }
 
         private void Sqrt()
@@ -176,9 +172,9 @@ namespace CalculatorClient.ViewModel
             {
                 Result = calculator.Sqrt(a);
             }
-            catch (ArithmeticException exc)
+            catch (FaultException<ArithmeticFault> exc)
             {
-                ErrorText = exc.Message;
+                ErrorText = exc.Detail.Message;
             }
         }
 
