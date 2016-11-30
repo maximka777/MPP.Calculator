@@ -14,7 +14,15 @@ namespace CalculatorWCFService
     {
         public double Add(double a, double b)
         {
-            return a + b;
+            try
+            {
+                var result = a + b;
+                return result;
+            }
+            catch(Exception exc)
+            {
+                throw new FaultException<ArithmeticFault>(new ArithmeticFault(exc.Message));
+            }
         }
 
         public double Divide(double a, double b)
@@ -28,17 +36,37 @@ namespace CalculatorWCFService
 
         public double Multiply(double a, double b)
         {
-            return a * b;
+            try
+            {
+                var result = a * b;
+                return result;
+            }
+            catch (Exception exc)
+            {
+                throw new FaultException<ArithmeticFault>(new ArithmeticFault(exc.Message));
+            }
         }
 
         public double Sqrt(double a)
         {
+            if(a < 0)
+            {
+                throw new FaultException<ArithmeticFault>(new ArithmeticFault("Sqrt from negative number."));
+            }
             return Math.Sqrt(a);
         }
 
         public double Substract(double a, double b)
         {
-            return a - b;
+            try
+            {
+                var result = a - b;
+                return result;
+            }
+            catch (Exception exc)
+            {
+                throw new FaultException<ArithmeticFault>(new ArithmeticFault(exc.Message));
+            }
         }
     }
 }
